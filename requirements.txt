@@ -1,9 +1,10 @@
 # core
-django==4.1.1
+django==4.1.2
+webargs==8.2.0
 # for clear code
-black==22.8.0
+black==22.10.0
 flake8==5.0.4
-pyupgrade==2.38.2
+pyupgrade==3.0.0
 pre-commit==2.20.0
 # name generator
 faker==15.0.0
