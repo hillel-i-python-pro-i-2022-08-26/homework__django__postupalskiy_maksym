@@ -1,6 +1,7 @@
 from random import randint
 from faker import Faker
 from users_generator.models import UserInfo
+
 fake = Faker()
 
 
@@ -29,7 +30,9 @@ def password_generator(amount: int) -> list[str]:
     for password in range(amount):
         password = fake.password(length=randint(5, 25), special_chars=False)
         if password in list_with_password:
-            password = fake.password(length=randint(5, 25), special_chars=False).reverse()
+            password = fake.password(
+                length=randint(5, 25), special_chars=False
+            ).reverse()
         list_with_password.append(password)
     return list_with_password
 
