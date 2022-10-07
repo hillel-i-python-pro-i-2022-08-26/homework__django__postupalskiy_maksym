@@ -17,8 +17,3 @@ install environment for development ⬇️
 ```shell
 init-dev
 ```
-
-<h3>Hyperlinks that you can use in this project</h3>
-<ul>
-<li>/greetings</li>
-<li>/greetings/(your name)</li>
