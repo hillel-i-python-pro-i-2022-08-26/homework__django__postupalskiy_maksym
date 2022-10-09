@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "greetings.apps.GreetingsConfig",
+    "users_generator.apps.UsersGeneratorConfig",
+    "home_page.apps.BaseConfig",
 ]
 
 MIDDLEWARE = [
