@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BaseConfig(AppConfig):
+class HomePageConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "home_page"
+    name = "apps.home_page"
