@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
     "apps.home_page.apps.HomePageConfig",
+    "contacts.apps.ContactsConfig",
 ]
 
 MIDDLEWARE = [

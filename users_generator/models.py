@@ -10,3 +10,6 @@ class UserInfo(NamedTuple):
 
     def __str__(self):
         return f"Name: {self.name}. Email: {self.email}. Password: {self.password}"
+
+
+
