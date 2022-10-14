@@ -22,9 +22,10 @@ class Command(BaseCommand):
             help="generate amount of contacts(default 10)",
         )
         parser.add_argument(
-            '-i', '--ignore',
-            action='store_true',
-            help='generate contacts with is_auto_generate=False',
+            "-i",
+            "--ignore",
+            action="store_true",
+            help="generate contacts with is_auto_generate=False",
         )
 
     def handle(self, *args, **options):
@@ -35,12 +36,14 @@ class Command(BaseCommand):
 
         for count, info in enumerate(return_contact(amount=amount), start=1):
             self.logger.info(f"Generate: {count} of {amount}")
-            if not options['ignore']:
+            if not options["ignore"]:
                 info.is_auto_generated = True
-            if options['amount'] > 100:
+            if options["amount"] > 100:
                 raise Exception("It's going to be hard to delete")
             info.save()
             self.logger.info(f"Generate {count} of {amount} DONE")
 
         info_after_generating = models.Contact.objects.all().count()
-        self.logger.info(f"Amount of contacts after generating: {info_after_generating}")
+        self.logger.info(
+            f"Amount of contacts after generating: {info_after_generating}"
+        )

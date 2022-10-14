@@ -17,3 +17,12 @@ install environment for development ⬇️
 ```shell
 init-dev
 ```
+
+contacts generate ⬇️
+```shell
+python manage.py info_generator
+```
+contacts delete ⬇️
+```shell
+python manage.py info_delete (--all)
+```
