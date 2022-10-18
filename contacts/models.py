@@ -17,4 +17,4 @@ class Contact(models.Model):
     __repr__ = __str__
 
     class Meta:
-        ordering = ('-created_at',)
+        ordering = ("-created_at",)
