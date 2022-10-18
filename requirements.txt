@@ -4,7 +4,7 @@ webargs==8.2.0
 # for clear code
 black==22.10.0
 flake8==5.0.4
-pyupgrade==3.0.0
+pyupgrade==3.1.0
 pre-commit==2.20.0
 # name generator
-faker==15.0.0
+faker==15.1.1
