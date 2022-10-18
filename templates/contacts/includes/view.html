@@ -1,0 +1,11 @@
+{% include 'contacts/includes/navigation.html' %}
+
+<h1>{{ title }}</h1>
+
+<p>Name: {{ contact.name }}.</p>
+<p>Phone number: {{ contact.phone }}</p>
+<p>Date of birthday: {{ contact.b_day|date:"d.m.Y" }}</p>
+
+{% include 'contacts/includes/update.html' %}
+{% include 'contacts/includes/delete.html' %}
+<hr>

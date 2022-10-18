@@ -2,13 +2,16 @@
 
 {% block content %}
 
+    {% include 'contacts/includes/navigation.html' %}
 
-    <h1>Contacts</h1>
+    <h1>{{ title }}</h1>
 
     {% for contact in contacts %}
         <p>Name: {{ contact.name }}</p>
         <p>Phone: {{ contact.phone }}</p>
         <p>Birth day: {{ contact.b_day|date:"D.M.Y" }}</p>
+        {% include 'contacts/includes/update.html' %}
+        {% include 'contacts/includes/delete.html' %}
         <hr>
     {% endfor %}
 

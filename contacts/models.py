@@ -15,3 +15,6 @@ class Contact(models.Model):
         return f"{self.name} {self.phone} {self.b_day}"
 
     __repr__ = __str__
+
+    class Meta:
+        ordering = ('-created_at',)

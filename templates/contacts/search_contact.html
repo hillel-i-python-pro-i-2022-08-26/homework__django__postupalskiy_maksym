@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% include 'contacts/includes/navigation.html' %}
+
+    <h1>{{ title }}</h1>
+    <form action="{% url 'contacts:contact_search' %}" method="get">
+        <label>
+            <input name="q" type="text" placeholder="Enter phone number or ID">
+        </label>
+    </form>
+
+{% endblock %}
