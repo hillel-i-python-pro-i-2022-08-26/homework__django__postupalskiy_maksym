@@ -1,0 +1,16 @@
+# Ignore all
+**
+
+# Exclude
+!docker/app
+!apps
+!core
+!contacts
+!greetings
+!session
+!templates
+!users_admin
+!users_generator
+!Makefile
+!manage.py
+!requirements.txt
