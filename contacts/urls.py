@@ -10,8 +10,6 @@ urlpatterns = [
     path("search-contact/", views.search_contact, name="contact_search"),
     path("view-contact/", views.show_contact_search, name="contact_info"),
     path("delete-contact/<int:pk>/", views.delete_contact, name="contact_delete"),
-    path(
-        "contact/contact-update/<int:pk>/", views.update_contact, name="contact_update"
-    ),
+    path("contact/contact-update/<int:pk>/", views.update_contact, name="contact_update"),
     path("contact/<int:pk>/", views.show_contact_info, name="contact"),
 ]

@@ -7,9 +7,7 @@ from django.contrib import messages
 
 def get_contact(request: HttpRequest) -> HttpResponse:
     contacts = Contact.objects.all()
-    return render(
-        request, "contacts/index.html", {"title": "Contact", "contacts": contacts}
-    )
+    return render(request, "contacts/index.html", {"title": "Contact", "contacts": contacts})
 
 
 def add_contact(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
