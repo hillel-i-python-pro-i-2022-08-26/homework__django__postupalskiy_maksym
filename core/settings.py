@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "apps.home_page.apps.HomePageConfig",
     "contacts.apps.ContactsConfig",
     "users_admin",
+    "session.apps.SessionConfig",
 ]
 
 MIDDLEWARE = [
