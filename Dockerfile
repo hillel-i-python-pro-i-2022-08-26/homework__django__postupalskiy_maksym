@@ -12,12 +12,10 @@ RUN useradd --system ${USER} && \
 
 RUN apt update && apt upgrade -y
 
-# Copy_project_files__start
 COPY --chown=${USER} requirements.txt requirements.txt
 
 RUN pip install --upgrade pip && \
     pip install --requirement requirements.txt
-
 
 
 COPY --chown=${USER} --chmod=755 ./docker/app/start.sh /start.sh
@@ -26,9 +24,6 @@ COPY --chown=${USER} --chmod=755 ./docker/app/entrypoint.sh /entrypoint.sh
 COPY --chown=${USER} ./manage.py manage.py
 COPY --chown=${USER} ./Makefile Makefile
 
-# Copy_project_files__stop
-
-# Copy_apps__start
 COPY --chown=${USER} ./apps apps
 COPY --chown=${USER} ./contacts contacts
 COPY --chown=${USER} ./core core
@@ -37,11 +32,6 @@ COPY --chown=${USER} ./session session
 COPY --chown=${USER} ./users_admin users_admin
 COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./templates templates
-# Copy_apps__stop
-
-# Copy_templates__start
-COPY --chown=${USER} ./templates templates
-# Copy_templates__stop
 
 USER ${USER}
 

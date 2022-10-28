@@ -3,12 +3,6 @@
 homework-i-run:
 	@python manage.py runserver
 
-.PHONY: d-homework-i-run
-# Make all actions needed for run homework from zero.
-d-homework-i-run:
-	@make init-config && \
-		make d-run
-
 .PHONY: d-homework-i-purge
 # Make all actions needed for purge homework related data.
 d-homework-i-purge:
@@ -21,6 +15,12 @@ init-dev:
 	@pip install --upgrade pip && \
 	pip install --requirement requirements.txt && \
 	pre-commit install
+
+.PHONY: d-homework-i-run
+# Make all actions needed for run homework from zero.
+d-homework-i-run:
+	@make init-config && \
+		make d-run
 
 .PHONY: d-run
 # Just run
