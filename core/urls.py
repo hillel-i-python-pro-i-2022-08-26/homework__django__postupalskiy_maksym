@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include("apps.home_page.urls")),
     path("greetings/", include("greetings.urls")),
     path("users/", include("users_generator.urls")),
+    path("contacts/", include("contacts.urls")),
 ]
