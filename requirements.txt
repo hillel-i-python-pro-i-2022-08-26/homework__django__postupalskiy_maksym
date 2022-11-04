@@ -1,5 +1,5 @@
 # core
-django==4.1.2
+django==4.1.3
 webargs==8.2.0
 # for clear code
 black==22.10.0
@@ -8,3 +8,8 @@ pyupgrade==3.1.0
 pre-commit==2.20.0
 # name generator
 faker==15.1.1
+
+# for enviroment variables and config
+django-environ==0.9.0
+# for DB connection
+psycopg2-binary==2.9.5
