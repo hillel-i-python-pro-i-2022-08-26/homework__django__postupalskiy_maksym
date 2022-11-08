@@ -1,0 +1,88 @@
+.my-header {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #252525;
+    border-radius: 10px;
+    background-color: #252525;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+    align-self: flex-start;
+}
+
+.my-element-style {
+    border: 1px solid #252525;
+    width: fit-content;
+    border-radius: 5px;
+    margin: .5em;
+    padding: .2em;
+    background-color: #252525;
+    box-shadow: 10px 5px 5px #313131;
+
+}
+
+.my-element-style:hover {
+    box-shadow: 10px 5px 10px #5e5e5e;
+}
+
+.my-custom-list {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.my-greetings-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+}
+
+body {
+  padding: 25px;
+  background-color: #313030;
+  color: white;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: white;
+  color: black;
+}
+
+.start-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 200px;
+  padding: 5px;
+}
+
+.start-page {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.start-page {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.footer-start-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

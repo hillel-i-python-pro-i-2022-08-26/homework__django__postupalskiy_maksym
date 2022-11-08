@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
     {% include 'contacts/includes/navigation.html' %}
 
-    <h1>{{ title }}</h1>
-
+    <ol class="my-custom-list">
     {% for contact in contacts %}
-        <p>Name: {{ contact.name }}</p>
-        <p>Phone: {{ contact.phone }}</p>
-        <p>Birth day: {{ contact.b_day|date:"D.M.Y" }}</p>
-        {% include 'contacts/includes/update.html' %}
-        {% include 'contacts/includes/delete.html' %}
-        <hr>
+        <li class="my-element-style" >
+            <div>
+                <div class="col">
+                    <p>Name: {{ contact.name }}</p>
+                    <p>Phone: {{ contact.phone }}</p>
+                    <p>Birth day: {{ contact.b_day|date:"D.M.Y" }}</p>
+                    {% include 'contacts/includes/update.html' %}
+                    {% include 'contacts/includes/delete.html' %}
+                </div>
+            </div>
+            <hr>
+            </li>
     {% endfor %}
-
+    </ol>
 {% endblock %}

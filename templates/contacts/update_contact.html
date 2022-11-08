@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -9,8 +10,8 @@
     <form method="POST" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.non_field_errors }}
-        {{ form.as_p }}
-        <input type="submit" class="btn-sub" value="Update user">
+        {{ form|crispy}}
+        <input type="submit" class="btn btn-primary" value="Update user">
     </form>
     <a href="{% url 'contacts:index' %}"><- Back</a>
 {% endblock %}

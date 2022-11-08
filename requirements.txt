@@ -7,9 +7,10 @@ flake8==5.0.4
 pyupgrade==3.2.0
 pre-commit==2.20.0
 # name generator
-faker==15.2.0
+faker==15.3.1
 
 # for enviroment variables and config
 django-environ==0.9.0
 # for DB connection
 psycopg2-binary==2.9.5
+crispy-bootstrap5==0.7
