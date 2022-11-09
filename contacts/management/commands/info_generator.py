@@ -44,6 +44,4 @@ class Command(BaseCommand):
             self.logger.info(f"Generate {count} of {amount} DONE")
 
         info_after_generating = models.Contact.objects.all().count()
-        self.logger.info(
-            f"Amount of contacts after generating: {info_after_generating}"
-        )
+        self.logger.info(f"Amount of contacts after generating: {info_after_generating}")
