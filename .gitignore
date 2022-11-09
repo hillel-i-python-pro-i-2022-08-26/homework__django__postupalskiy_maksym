@@ -4,3 +4,8 @@ db.sqlite3
 docker-compose.override.yml
 db/*
 !db/.gitkeep
+.env
+env/
+ENV/
+env.bak/
+venv.bak/
