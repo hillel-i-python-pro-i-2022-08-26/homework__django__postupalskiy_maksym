@@ -1,0 +1,4 @@
+<form action="{% url 'contacts:contact_update' contact.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Update user">
+</form>

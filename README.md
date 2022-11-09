@@ -26,3 +26,7 @@ contacts delete ⬇️
 ```shell
 python manage.py info_delete (--all)
 ```
+create custom super user ⬇️
+```shell
+init-dev-i-create-superuser
+```

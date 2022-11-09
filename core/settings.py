@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "users_generator.apps.UsersGeneratorConfig",
     "apps.home_page.apps.HomePageConfig",
     "contacts.apps.ContactsConfig",
+    "users_admin",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "core.urls"
+
+AUTH_USER_MODEL = "users_admin.Admin"
 
 TEMPLATES = [
     {
@@ -125,3 +128,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DATE_INPUT_FORMATS = [
+    "%d-%m-%Y",
+    "%d.%m.%Y",
+    "%Y-%m-%d",
+    "%Y-%d-%m",
+]
