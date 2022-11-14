@@ -24,6 +24,7 @@ COPY --chown=${USER} --chmod=755 ./docker/app/entrypoint.sh /entrypoint.sh
 COPY --chown=${USER} ./manage.py manage.py
 COPY --chown=${USER} ./Makefile Makefile
 
+# Core Apps [START]
 COPY --chown=${USER} ./apps apps
 COPY --chown=${USER} ./contacts contacts
 COPY --chown=${USER} ./core core
@@ -31,7 +32,12 @@ COPY --chown=${USER} ./greetings greetings
 COPY --chown=${USER} ./session session
 COPY --chown=${USER} ./users_admin users_admin
 COPY --chown=${USER} ./users_generator users_generator
+# Core Apps [END]
+
+# HTML/CSS [START]
 COPY --chown=${USER} ./templates templates
+COPY --chown=${USER} ./static static
+# HTML/CSS [END]
 
 USER ${USER}
 
