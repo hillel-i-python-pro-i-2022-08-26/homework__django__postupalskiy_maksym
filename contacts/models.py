@@ -5,7 +5,7 @@ from django.urls import reverse
 
 def get_icon_path(instance, filename) -> str:
     _, extension = filename.rsplit(".", maxsplit=1)
-    return f'contacts/contact/avatar/{instance.pk}/{uuid.uuid4()}/avatar.{extension}'
+    return f"contacts/contact/avatar/{instance.pk}/{uuid.uuid4()}/avatar.{extension}"
 
 
 class Contact(models.Model):
