@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    {% include 'contacts/includes/navigation.html' %}
+
+    <h1>{{ title }}</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.phone|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.b_day|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.avatar|as_crispy_field }}
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Update user">
+    </form>
+    <a href="{% url 'contacts:index' %}"><- Back</a>
+{% endblock %}

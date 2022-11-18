@@ -6,10 +6,13 @@
     {% include 'contacts/includes/navigation.html' %}
 
     <ol class="my-custom-list">
-    {% for contact in contacts %}
+    {% for contact in object_list %}
         <li class="my-element-style" >
             <div>
                 <div class="col">
+                    {% if contact.avatar %}
+                        <img class='contact-avatar' src="{{ contact.avatar.url}}" alt="{{ contact.name}}" />
+                    {% endif %}
                     <p>Name: {{ contact.name }}</p>
                     <p>Phone: {{ contact.phone }}</p>
                     <p>Birth day: {{ contact.b_day|date:"D.M.Y" }}</p>

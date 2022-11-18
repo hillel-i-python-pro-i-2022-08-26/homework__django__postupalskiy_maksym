@@ -25,3 +25,6 @@ psycopg2-binary==2.9.5
 
 # For forms styling
 crispy-bootstrap5==0.7
+
+# For images in django
+pillow==9.3.0
