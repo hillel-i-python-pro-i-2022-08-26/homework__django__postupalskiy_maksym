@@ -20,7 +20,19 @@
         <li class="nav">
             <h1><a class="nav-link" href="{% url 'session:session' %}">Session info</a></h1>
         </li>
-
+        {% if user.is_authenticated %}
+            <li class="nav">
+                <a class="nav-link" href="{% url 'users:edit' user.pk %}">Edit profile</a>
+            </li>
+            <li class="nav">
+                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+            </li>
+            <li class="nav">
+                <div class="card" style="width: 3em; height: 3em;">
+            <img src="{{ user.avatar.url }}" class="user-avatar" alt="{{ user.username }}">
+        </div>
+            </li>
+        {% endif %}
         <script>
         function myFunction() {
            var element = document.body;

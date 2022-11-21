@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <h1>{{ title }}</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-row">
+            <div class="form-group">
+                {{ form|crispy }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update user</button>
+    </form>
+
+{% endblock %}

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "apps.home_page.apps.HomePageConfig",
     "contacts",
     "users_admin",
+    "users",
     "session.apps.SessionConfig",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -161,3 +162,6 @@ DATE_INPUT_FORMATS = [
     "%Y-%m-%d",
     "%Y-%d-%m",
 ]
+
+LOGIN_REDIRECT_URL = "home_page:index"
+LOGOUT_REDIRECT_URL = "home_page:index"
