@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
     "apps.home_page.apps.HomePageConfig",
-    "contacts.apps.ContactsConfig",
+    "contacts",
     "users_admin",
     "session.apps.SessionConfig",
     "crispy_forms",
