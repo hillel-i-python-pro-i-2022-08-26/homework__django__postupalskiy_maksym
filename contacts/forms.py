@@ -13,7 +13,7 @@ class AddContactForm(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = ("name", "phone", "b_day")
+        fields = ("name", "phone", "b_day", "avatar")
 
     def clean_phone(self):
         phone = self.cleaned_data["phone"]

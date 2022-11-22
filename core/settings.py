@@ -53,8 +53,9 @@ INSTALLED_APPS = [
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
     "apps.home_page.apps.HomePageConfig",
-    "contacts.apps.ContactsConfig",
+    "contacts",
     "users_admin",
+    "users",
     "session.apps.SessionConfig",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -148,6 +149,9 @@ STATICFILES_DIRS = [
     APPS_DIR.joinpath("static"),
 ]
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR.joinpath("media")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -158,3 +162,6 @@ DATE_INPUT_FORMATS = [
     "%Y-%m-%d",
     "%Y-%d-%m",
 ]
+
+LOGIN_REDIRECT_URL = "home_page:index"
+LOGOUT_REDIRECT_URL = "home_page:index"

@@ -1,33 +1,27 @@
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpRequest
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView, TemplateView
+from django.shortcuts import render
 from contacts.models import Contact
-from contacts.forms import AddContactForm
-from django.contrib import messages
+from django.urls import reverse_lazy
 
 
-def get_contact(request: HttpRequest) -> HttpResponse:
-    contacts = Contact.objects.all()
-    return render(request, "contacts/index.html", {"title": "Contact", "contacts": contacts})
+class ContactListView(ListView):
+    model = Contact
 
 
-def add_contact(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
-    if request.method == "POST":
-        form = AddContactForm(request.POST)
-        if form.is_valid():
-            contact = form.save()
-            contact.save()
-            messages.success(request, "Contact added successfully")
-            return redirect("contacts:contact", pk=contact.pk)
-    else:
-        form = AddContactForm(request.POST)
-    return render(
-        request,
-        "contacts/add_contact.html",
-        {
-            "title": "Add Contact",
-            "form": form,
-        },
+class ContactCreateView(CreateView):
+    model = Contact
+    fields = (
+        "name",
+        "phone",
+        "b_day",
+        "avatar",
     )
+
+    def get_success_url(self):
+        return reverse_lazy("contacts:contact", kwargs={"pk": self.object.pk})
 
 
 def search_contact(request: HttpRequest) -> HttpResponse:
@@ -55,40 +49,34 @@ def show_contact_search(request: HttpRequest) -> HttpResponse:
     )
 
 
-def delete_contact(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
-    contact = get_object_or_404(Contact, pk=pk)
-    contact.delete()
-    messages.success(request, f"Contact {contact.name} deleted")
-    return redirect("contacts:index")
+@method_decorator(login_required, name="post")
+class ContactDeleteView(DeleteView):
+    model = Contact
+    success_url = reverse_lazy("contacts:index")
 
 
-def update_contact(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
-    contact = get_object_or_404(Contact, pk=pk)
-    if request.method == "POST":
-        form = AddContactForm(request.POST, instance=contact)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Contact updated")
-            return redirect("contacts:contact", pk=pk)
-        else:
-            form = AddContactForm(instance=contact)
-        return render(
-            request,
-            "contacts/update_contact.html",
-            {
-                "title": "Contact Update",
-                "form": form,
-            },
-        )
-
-
-def show_contact_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
-    contact = get_object_or_404(Contact, pk=pk)
-    return render(
-        request,
-        "contacts/show_contact_info.html",
-        {
-            "title": f"info {contact.name}",
-            "contact": contact,
-        },
+@method_decorator(login_required, name="post")
+class ContactUpdateView(UpdateView):
+    model = Contact
+    fields = (
+        "name",
+        "phone",
+        "b_day",
+        "avatar",
     )
+    template_name_suffix = "_update_form"
+
+    def get_success_url(self):
+        contact_pk = self.kwargs["pk"]
+        return reverse_lazy("contacts:contact", kwargs={"pk": contact_pk})
+
+
+class ContactView(TemplateView):
+    template_name = "contacts/show_contact_info.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        contact = Contact.objects.get(pk=context["pk"])
+        context["contact"] = contact
+        context["title"] = f"Info {contact.name}."
+        return context
