@@ -4,7 +4,7 @@ from middlewares import models
 
 
 class Command(BaseCommand):
-    help = 'Delete session info'
+    help = "Delete session info"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,7 +22,7 @@ class Command(BaseCommand):
         amount_of_session_info = models.VisitorsRequests.objects.all().count()
         self.logger.info(f"Amount session: {amount_of_session_info}")
 
-        if options['delete_sessions']:
+        if options["delete_sessions"]:
             all_info = models.VisitorsRequests.objects.all()
             all_info.delete()
 

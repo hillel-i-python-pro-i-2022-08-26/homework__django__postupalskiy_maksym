@@ -10,16 +10,16 @@ def session_info(request: WSGIRequest | HttpRequest) -> HttpResponse:
     if not session.session_key:
         session.save()
     visit_time = session.get("visit_time", datetime.datetime.now())
-    visits_count = session.get("count", 0)
-    visits_count += 1
-    session["count"] = visits_count
+    count_of_visits = session.get("count", 0)
+    count_of_visits += 1
+    session["count"] = count_of_visits
     return render(
         request,
         "session/index.html",
         {
             "title": "Session info",
             "session_id": session.session_key,
-            "visits_count": visits_count,
+            "count_of_visits": count_of_visits,
             "visit_time": visit_time,
         },
     )

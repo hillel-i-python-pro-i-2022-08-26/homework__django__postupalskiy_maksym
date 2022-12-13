@@ -12,36 +12,39 @@ class LoggingMiddleware:
         self.logger.info("Start")
 
     def __call__(self, request: WSGIRequest):
-        session = request.session
 
+        # Get_user_session__start
+        session = request.session
         if not session.session_key:
             session.save()
-
         session_key = session.session_key
+        # Get_user_session__stop
 
-        log_message = f"Path:{request.path} - User:{request.user} - Session:{session_key}"
+        logger_message = f"Path:{request.path} - User:{request.user} - Session:{session_key}"
 
-        self.logger.info(f"[before] {log_message}")
+        # Get_response__start
+        self.logger.info(f"Before - {logger_message}")
         response: HttpResponse = self.get_response(request)
-        self.logger.info(f"[after] {log_message}")
+        self.logger.info(f"After - {logger_message}")
+        # Get_response__stop
 
-        visit_request = VisitorsRequests.objects.filter(session_key=session_key, path=request.path).first()
+        visit_handler = VisitorsRequests.objects.filter(session_key=session_key, path=request.path).first()
 
-        if visit_request is not None:
-            count_visitors = visit_request.count_visitors
+        if visit_handler is not None:
+            count_of_visits = visit_handler.count_of_visits
         else:
-            visit_request = VisitorsRequests()
-            count_visitors = 0
+            visit_handler = VisitorsRequests()
+            count_of_visits = 0
             if request.user.is_authenticated:
-                visit_request = request.user
+                visit_handler.user = request.user
 
-            visit_request.path = request.path
-            visit_request.session_key = session_key
+            visit_handler.path = request.path
+            visit_handler.session_key = session_key
 
-        count_visitors += 1
-        session['count'] = count_visitors
-        visit_request.count_visitors = session['count']
+        count_of_visits += 1
+        session["count"] = count_of_visits
+        visit_handler.count_of_visits = session["count"]
 
-        visit_request.save()
+        visit_handler.save()
 
         return response

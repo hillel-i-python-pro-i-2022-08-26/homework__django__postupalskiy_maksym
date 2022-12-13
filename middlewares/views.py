@@ -8,7 +8,7 @@ class MiddlewaresView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Middleware"
+        context["title"] = "Middleware"
         return context
 
 
@@ -18,9 +18,9 @@ class AllRequestInfoView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "All Sessions"
+        context["title"] = "All Sessions"
         session_request = VisitorsRequests.objects.all()
-        context['object_list'] = session_request
+        context["object_list"] = session_request
         context.update(aggregator(session_request))
         return context
 
@@ -32,8 +32,8 @@ class CurrentRequestInfoView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Current session info"
-        session_request = VisitorsRequests.objects.filter(session_key=self.kwargs['session_key'])
-        context['object_list'] = session_request
+        session_request = VisitorsRequests.objects.filter(session_key=self.kwargs["session_key"])
+        context["object_list"] = session_request
         context.update(aggregator(session_request))
         return context
 
@@ -45,8 +45,7 @@ class CurrentUserInfoView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Current user info"
-        session_request = VisitorsRequests.objects.filter(user=self.kwargs['pk'])
-        context['object_list'] = session_request
+        session_request = VisitorsRequests.objects.filter(user=self.kwargs["pk"])
+        context["object_list"] = session_request
         context.update(aggregator(session_request))
         return context
-
