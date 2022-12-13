@@ -1,0 +1,16 @@
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'middlewares:all_info' %}">All info about actions</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'middlewares:session_info' request.session.session_key %}">Info about
+            current session actions</a>
+    </li>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'middlewares:user_info' user.pk %}">Info about current user
+                actions</a>
+        </li>
+    {% endif %}
+</ul>

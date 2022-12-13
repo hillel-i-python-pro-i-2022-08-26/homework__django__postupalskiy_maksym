@@ -33,6 +33,7 @@ COPY --chown=${USER} ./session session
 COPY --chown=${USER} ./users_admin users_admin
 COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./users users
+COPY --chown=${USER} ./middlewares middlewares
 # Core Apps [END]
 
 # HTML/CSS [START]

@@ -32,6 +32,9 @@
             <img src="{{ user.avatar.url }}" class="user-avatar" alt="{{ user.username }}">
         </div>
             </li>
+                    <li class="nav-item">
+            <a class="nav-link" href="{% url 'middlewares:index' %}">Middleware</a>
+            </li>
         {% endif %}
         <script>
         function myFunction() {
