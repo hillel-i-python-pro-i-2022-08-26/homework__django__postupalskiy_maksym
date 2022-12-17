@@ -1,17 +1,22 @@
 # Ignore all
 **
 
-# Exclude
+# Exclude[FILES]
+!Makefile
+!manage.py
+!requirements.txt
 !docker/app
+
+# Exclude[APPS]
 !apps
 !core
 !contacts
 !greetings
 !session
-!templates
 !users_admin
 !users_generator
-!Makefile
-!manage.py
-!requirements.txt
+!users
 
+# Exclude[VISUAL]
+!static
+!templates
