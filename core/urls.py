@@ -28,6 +28,7 @@ urlpatterns = [
     path("sessions/", include("session.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("users.urls")),
+    path("middleware/", include("middlewares.urls")),
 ]
 
 if settings.DEBUG:

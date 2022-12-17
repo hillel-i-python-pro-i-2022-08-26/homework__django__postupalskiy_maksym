@@ -16,6 +16,7 @@
 !users_admin
 !users_generator
 !users
+!middlewares
 
 # Exclude[VISUAL]
 !static

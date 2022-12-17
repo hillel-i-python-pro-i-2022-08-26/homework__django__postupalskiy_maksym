@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "users_admin",
     "users",
     "session.apps.SessionConfig",
+    "middlewares.apps.MiddlewaresConfig",
     "crispy_forms",
     "crispy_bootstrap5",
 ]
@@ -73,6 +74,15 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+INIT_CUSTOM_MIDDLEWARE = True
+
+if INIT_CUSTOM_MIDDLEWARE:
+    MIDDLEWARE.extend(
+        [
+            env.str("CUSTOM_MIDDLEWARE"),
+        ],
+    )
 
 ROOT_URLCONF = "core.urls"
 
