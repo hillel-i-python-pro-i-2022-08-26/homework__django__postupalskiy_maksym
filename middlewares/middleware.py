@@ -12,7 +12,6 @@ class LoggingMiddleware:
         self.logger.info("Start")
 
     def __call__(self, request: WSGIRequest):
-
         # Get_user_session__start
         session = request.session
         if not session.session_key:

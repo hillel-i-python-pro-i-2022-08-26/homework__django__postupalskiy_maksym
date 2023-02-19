@@ -1,22 +1,22 @@
 # Core
-django==4.1.3
+django==4.1.7
 
 # For better parsing args from query part from URL
 webargs==8.2.0
 
 # [code_style]-[BEGIN]
 # Formatter. Apply codestyle.
-black==22.10.0
+black==23.1.0
 # Check codestyle.
 flake8==5.0.4
 # Upgrade syntax.
-pyupgrade==3.2.0
+pyupgrade==3.3.1
 # Pre-commit hook.
-pre-commit==2.20.0
+pre-commit==3.0.4
 # [code_style]-[END]
 
 # Name generating
-faker==15.3.1
+faker==17.0.0
 
 # for enviroment variables and config
 django-environ==0.9.0
@@ -26,9 +26,13 @@ psycopg2-binary==2.9.5
 # For forms styling
 crispy-bootstrap5==0.7
 
-# For images in django
-pillow==9.3.0
+django-crispy-forms==2.0
 
+# For images in django
+pillow==9.4.0
+
+# Unique authenticator
 ULID==1.1
 
-django-crispy-forms==1.14.0
+#Django REST Framework
+djangorestframework==3.14.0

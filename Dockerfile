@@ -34,6 +34,7 @@ COPY --chown=${USER} ./users_admin users_admin
 COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./users users
 COPY --chown=${USER} ./middlewares middlewares
+COPY --chown=${USER} ./crud_rest_framework crud_rest_framework
 # Core Apps [END]
 
 # HTML/CSS [START]

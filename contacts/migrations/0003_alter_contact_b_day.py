@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("contacts", "0002_rename_generator_contact_is_auto_generated"),
     ]
