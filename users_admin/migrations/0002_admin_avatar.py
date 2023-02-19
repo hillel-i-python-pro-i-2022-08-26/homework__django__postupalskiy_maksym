@@ -5,7 +5,6 @@ import users_admin.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("users_admin", "0001_initial"),
     ]

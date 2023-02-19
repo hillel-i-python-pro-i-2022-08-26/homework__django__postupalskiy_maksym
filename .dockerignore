@@ -17,6 +17,7 @@
 !users_generator
 !users
 !middlewares
+!crud_rest_framework
 
 # Exclude[VISUAL]
 !static

@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from crud_rest_framework.urls import router
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +29,8 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("users.urls")),
     path("middleware/", include("middlewares.urls")),
+    path("api-drf/", include(router.urls)),
+    path("api-drf/", include("crud_rest_framework.urls")),
 ]
 
 if settings.DEBUG:
